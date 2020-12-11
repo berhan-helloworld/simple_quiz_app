@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/model/results.dart';
-import 'package:flutter_quiz/provider/quiz_state.dart';
-import 'package:flutter_quiz/provider/score_provider.dart';
-import 'package:flutter_quiz/screens/congrats/congrats.dart';
-import 'package:flutter_quiz/widgets/answer_widget.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_quiz/controllers/quiz_controller.dart';
+import 'package:flutter_quiz/models/results.dart';
+import 'package:flutter_quiz/views/congrats/congrats.dart';
+import 'package:flutter_quiz/views/home/widgets/answer_widget.dart';
+import 'package:get/get.dart';
 
 class QuestionWidget extends StatelessWidget {
+  final quizController = Get.put(QuizController());
   final List<Results> _results;
-  const QuestionWidget(
+  QuestionWidget(
     this._results, {
     Key key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var state = Provider.of<QuizState>(context);
-
     return PageView.builder(
-      controller: state.controller,
+      controller: quizController.controller,
       physics: NeverScrollableScrollPhysics(),
       itemCount: _results.length,
       itemBuilder: (context, index) {

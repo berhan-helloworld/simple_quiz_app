@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz/provider/score_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_quiz/controllers/score_controlle.dart';
+import 'package:get/get.dart';
 
 class MyAppBar extends StatelessWidget with PreferredSizeWidget {
+  final scoreController = Get.put(ScoreController());
   final String _title;
 
   @override
   final Size preferredSize;
 
-  const MyAppBar(this._title, {Key key})
+  MyAppBar(this._title, {Key key})
       : preferredSize = const Size.fromHeight(50.0),
         super(key: key);
   @override
@@ -24,7 +25,7 @@ class MyAppBar extends StatelessWidget with PreferredSizeWidget {
                   TextStyle(fontFamily: "roboto", fontWeight: FontWeight.bold),
             ),
           ),
-          Text("Score: ${context.watch<ScoreProvider>().score}/30")
+          Obx(() => Text("Score: ${scoreController.score.value}/30"))
         ],
       ),
       elevation: 0.0,

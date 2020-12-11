@@ -8,13 +8,9 @@ This project is a simple quiz Flutter application.
 
    - used for handling the http requests
 
-2. fluttertoast
+2. Getx
 
-   - used for creating a Toast message
-
-3. provider
-
-   - for managing the state of the application
+   - used for state management and navigation
 
 ## Data source
 
@@ -23,3 +19,4 @@ This project is a simple quiz Flutter application.
 ![home page1](./git_images/home1.png)
 ![home page1](./git_images/home2.png)
 ![home page1](./git_images/home3.png)
+![home page1](./git_images/congrats.png)

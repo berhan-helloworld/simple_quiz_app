@@ -1,4 +1,4 @@
-import 'package:flutter_quiz/model/results.dart';
+import 'package:flutter_quiz/models/results.dart';
 
 class Quiz {
   int responseCode;
